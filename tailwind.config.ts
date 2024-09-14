@@ -21,7 +21,8 @@ const config: Config = {
         },
         purple: '#CA83FA'
       },
-    },
-  }
+    }
+  },
+  darkMode: 'class'
 };
 export default config
