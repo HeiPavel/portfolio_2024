@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import {Nokora} from 'next/font/google'
 import { Providers } from './providers'
-import { Header } from './components/Header'
+import { Header } from './components/Header/Header'
 import './globals.css'
 
 const nokora = Nokora({

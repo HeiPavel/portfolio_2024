@@ -1,14 +1,11 @@
 'use client'
 import { useState, useEffect, useRef, SyntheticEvent } from 'react'
 
-const linkText = ['home', 'project', 'contact']
-
-export const Header = () => {
+export const DesktopNav = ({linkText, breakpoint}: {linkText: string[], breakpoint: number}) => {
   const [isLinkClicked, setIsLinkClicked] = useState(false)
   const [lastSectionShift, setLastSectionShift] = useState(-1)
   const navRef = useRef<HTMLElement>(null)
   const underlineRef = useRef<HTMLDivElement>(null)
-  console.log(lastSectionShift)
 
   const setUnderline = (link: HTMLAnchorElement) => {
     if (!underlineRef.current) return
@@ -32,7 +29,7 @@ export const Header = () => {
   }
   
   useEffect(() => {
-    if (!navRef.current || window.innerWidth < 640) return
+    if (!navRef.current || breakpoint < 640) return
     
     const links = [...navRef.current.querySelectorAll('a')]
     const sections = [...document.querySelectorAll('.section')]
@@ -47,10 +44,10 @@ export const Header = () => {
     }
 
     if (lastSectionShift < 0) {
-      calculateLastSectionShift()
       for (const link of links) {
         if (link.classList.contains('active')) setUnderline(link)
       }
+      calculateLastSectionShift()
     }
     
     const handleScroll = () => {
@@ -93,30 +90,28 @@ export const Header = () => {
       window.removeEventListener('scrollend', handleScrollEnd)
       window.removeEventListener('resize', handleLastSectionShiftOnResize)
     } 
-  }, [isLinkClicked, lastSectionShift])
+  }, [isLinkClicked, lastSectionShift, breakpoint])
 
   return (
-    <header className='fixed z-50 top-0 h-10 tablet:h-12 w-full dark:bg-black-light bg-white'>
-      <div className='container flex h-full justify-between items-end dark:text-white text-black-dark'>
-        <p className='text-sm tablet:text-lg'>{'< '}Developer<span className='text-purple'>{' />'}</span></p>
-        <nav 
-          className='hidden relative tablet:flex gap-12 justify-between'
-          ref={navRef}
-          onClick={handleClick}
+    <nav 
+      className='hidden relative tablet:flex gap-12 justify-between'
+      ref={navRef}
+      onClick={handleClick}
+    >
+      {linkText.map((text, index) => (
+        <a 
+          className={`${text === 'home' ? 'active' : ''} capitalize cursor-pointer font-bold transition-all ease-in-out duration-200`}
+          href={`#${text !== 'home' ? text : ''}`}
+          key={index}
         >
-          {linkText.map((text, index) => (<a 
-              className={`${text === 'home' ? 'active' : ''} capitalize cursor-pointer font-bold transition-all ease-in-out duration-200`}
-              href={`#${text !== 'home' ? text : ''}`}
-              key={index}
-            >
-              {text}
-            </a>))}
-            <div 
-              ref={underlineRef}
-              className='absolute -bottom-px h-[3px] bg-purple transition-all duration-200 ease-linear'
-            ></div>
-        </nav>
+          {text}
+        </a>
+      ))}
+      <div 
+        ref={underlineRef}
+        className='absolute -bottom-px h-[3px] bg-purple transition-all duration-200 ease-linear'
+      >
       </div>
-    </header>
+    </nav>
   )
 }
