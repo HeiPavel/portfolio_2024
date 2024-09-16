@@ -9,8 +9,16 @@ const config: Config = {
   theme: {
     screens: {
       'tablet': '640px',
+      'md': '768px',
       'laptop': '1024px',
       'desktop': '1280px'
+    },
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: '1rem',
+        'tablet': '2rem'
+      }
     },
     extend: {
       colors: {
@@ -21,7 +29,8 @@ const config: Config = {
         },
         purple: '#CA83FA'
       },
-    },
-  }
+    }
+  },
+  darkMode: 'class'
 };
 export default config
