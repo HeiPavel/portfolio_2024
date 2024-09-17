@@ -1,9 +1,13 @@
 'use client'
 import { useState, useEffect, useRef, SyntheticEvent } from 'react'
+import { useResponsive } from '../hooks/useResponsive'
 
-export const DesktopNav = ({linkText, breakpoint}: {linkText: string[], breakpoint: number}) => {
+const breakpoints = [0, 640]
+
+export const DesktopNav = ({linkText}: {linkText: string[]}) => {
   const [isLinkClicked, setIsLinkClicked] = useState(false)
   const [lastSectionShift, setLastSectionShift] = useState(-1)
+  const index = useResponsive(breakpoints)
   const navRef = useRef<HTMLElement>(null)
   const underlineRef = useRef<HTMLDivElement>(null)
 
@@ -29,7 +33,7 @@ export const DesktopNav = ({linkText, breakpoint}: {linkText: string[], breakpoi
   }
   
   useEffect(() => {
-    if (!navRef.current || breakpoint < 640) return
+    if (!navRef.current || breakpoints[index] < 640) return
     
     const links = [...navRef.current.querySelectorAll('a')]
     const sections = [...document.querySelectorAll('.section')]
@@ -90,7 +94,7 @@ export const DesktopNav = ({linkText, breakpoint}: {linkText: string[], breakpoi
       window.removeEventListener('scrollend', handleScrollEnd)
       window.removeEventListener('resize', handleLastSectionShiftOnResize)
     } 
-  }, [isLinkClicked, lastSectionShift, breakpoint])
+  }, [isLinkClicked, lastSectionShift, index])
 
   return (
     <nav 
