@@ -72,6 +72,8 @@ export const DesktopNav = ({linkText}: {linkText: string[]}) => {
       setUnderline(links[nextIndex])
     }
 
+    if (!isLinkClicked) handleScroll()
+
     const handleScrollEnd = () => {
       if (isLinkClicked) setIsLinkClicked(false)
     }
