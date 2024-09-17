@@ -42,14 +42,14 @@ export function ThemeSwitch() {
       <Image
         src={sun}
         alt='sun image'
-        className={`size-10 tablet:size-12 ${resolvedTheme === 'dark' ? 'scale-75 grayscale invert' : ''} transition-all ease-linear cursor-pointer`}
+        className={`size-10 rounded-full tablet:size-12 ${resolvedTheme === 'dark' ? 'scale-75 grayscale invert hover:scale-[85%] hover:shadow-sun hover:grayscale-0 hover:invert-0 hover:brightness-200 duration-200' : ''} transition-all ease-linear cursor-pointer`}
         onClick={() => setTheme('light')}
         priority={true}
       />
       <Image
         src={moon}
         alt='moon image'
-        className={`size-10 tablet:size-12 ${resolvedTheme === 'light' ? 'scale-75 grayscale invert' : ''} transition-all ease-linear cursor-pointer`}
+        className={`size-10 rounded-full tablet:size-12 ${resolvedTheme === 'light' ? 'scale-75 grayscale brightness-200 invert hover:scale-[85%] hover:shadow-moon hover:grayscale-0 hover:invert-0 duration-200' : ''} transition-all ease-linear cursor-pointer`}
         onClick={() => setTheme('dark')}
         priority={true}
       />

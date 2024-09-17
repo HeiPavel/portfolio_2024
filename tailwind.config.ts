@@ -29,6 +29,10 @@ const config: Config = {
         },
         purple: '#CA83FA'
       },
+      boxShadow: {
+        'moon': '0 0 10px 5px rgba(56, 3, 92, 0.5)',
+        'sun' : '0 0 10px 5px rgba(255, 167, 59, 0.5)'
+      }
     }
   },
   darkMode: 'class'
