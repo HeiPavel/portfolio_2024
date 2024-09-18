@@ -39,16 +39,16 @@ export const MobileNav = ({linkText, activeLink, handleClick}: Props) => {
   return (
     <div className='block tablet:hidden'>
       <IoMenu 
-        className={`size-6 ${open ? 'hidden' : ''}`}
+        className={`size-8 ${open ? 'hidden' : ''}`}
         onClick={() => setOpen(true)}
       />
       <MdClose
-        className={`size-6 ${!open ? 'hidden' : ''}`}
+        className={`size-8 text-2xl ${!open ? 'hidden' : ''}`}
         onClick={() => setOpen(false)}
       />
       <Drawer
         open={open}
-        className='w-full z-30 bg-transparent'
+        className='w-full !z-30 bg-transparent'
         anchor='right'
         children={navMenu()}
         aria-hidden={false}

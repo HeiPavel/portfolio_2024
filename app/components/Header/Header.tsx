@@ -81,8 +81,8 @@ export const Header = () => {
   }, [activeLink, isLinkClicked, lastSectionShift, breakpointIndex])
 
   return (
-    <header className='fixed z-50 top-0 h-10 tablet:h-12 w-full dark:bg-black-light bg-white-default'>
-      <div className='container flex h-full justify-between items-end'>
+    <header className='fixed z-50 top-0 h-12 w-full dark:bg-black-light bg-white-default'>
+      <div className='container flex h-full justify-between items-center tablet:items-end'>
         <p className='text-sm tablet:text-lg'>{'< '}Developer<span className='text-purple'>{' />'}</span></p>
         <nav
           className='hidden relative tablet:flex gap-12 justify-between'
