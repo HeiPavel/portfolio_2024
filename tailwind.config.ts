@@ -33,11 +33,23 @@ const config: Config = {
           dark: '#0C0C0C'
         },
         purple: '#CA83FA',
-        grey: '#3C3C3D'
+        grey: {
+          default: '#3C3C3D',
+          light: '#D9D9D9',
+          dark: '#474747'
+        }
       },
       boxShadow: {
         'moon': '0 0 10px 5px rgba(56, 3, 92, 0.5)',
         'sun' : '0 0 10px 5px rgba(255, 167, 59, 0.5)'
+      },
+      animation: {
+        'blink': 'blink 0.5s step-end infinite alternate'
+      },
+      keyframes: {
+        'blink': {
+          '50%': {borderColor: 'transparent'}
+        }
       }
     }
   },

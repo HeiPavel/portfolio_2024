@@ -24,7 +24,7 @@ export const MobileNav = ({linkText, activeLink, handleClick}: Props) => {
       <nav className='relative px-2.5 top-20 flex flex-col gap-2.5 dark:text-white-default text-black-light font-bold'>
         {linkText.map((text, index) => (
           <a 
-            className={`${activeLink === index ? 'text-purple' : ''} capitalize cursor-pointer font-bold h-9 rounded flex justify-center items-center bg-white-light dark:bg-grey`}
+            className={`${activeLink === index ? 'text-purple' : ''} capitalize cursor-pointer font-bold h-9 rounded flex justify-center items-center bg-white-light dark:bg-grey-default`}
             href={`#${text !== 'home' ? text : ''}`}
             key={index}
             onClick={() => handleClose(index)}
