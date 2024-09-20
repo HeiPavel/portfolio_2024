@@ -2,6 +2,7 @@ import Image from 'next/image'
 import heroBackground from '@/assets/img/pavlo_hero_bg.png'
 import { TypeName } from './TypeName'
 import { SkillCarousel } from './SkillCarousel'
+import { Leetcode } from './Leetcode'
 
 export const Home = () => {
   return (
@@ -19,6 +20,7 @@ export const Home = () => {
       </div>
       <TypeName/>
       <SkillCarousel projectSkills={[]} />
+      <Leetcode/>
     </section>
   )
 }

@@ -22,9 +22,7 @@ const config: Config = {
         'tablet': '2rem'
       },
       screens: {
-        sm: '640px',   
-        md: '768px',  
-        lg: '1024px',  
+        sm: '100%',    
         xl: '1280px', 
         '2xl': '1440px'
       }
