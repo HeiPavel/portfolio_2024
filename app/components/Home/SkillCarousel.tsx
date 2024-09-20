@@ -3,7 +3,6 @@
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Autoplay } from 'swiper/modules'
 import { skillIcons } from './skillIcons'
-import 'swiper/css'
 
 export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
   const isForProject = !!projectSkills.length
@@ -17,14 +16,16 @@ export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
           delay: 1,
           disableOnInteraction: false
         }}
-        slidesPerView={4}
+        slidesPerView={'auto'}
         preventInteractionOnTransition={true}
         speed={1000}
+        spaceBetween={16}
+        slidesOffsetBefore={16}
         modules={[Autoplay]}
-        className='w-80 !m-0 rounded-full before:block before:absolute before:w-6 before:top-0 before:-left-6 before:h-full before:blur-xl before:backdrop-blur-xl 
+        className='relative overflow-hidden w-80 rounded-full before:block before:absolute before:w-6 before:top-0 before:-left-6 before:h-full before:blur-xl before:backdrop-blur-xl 
           before:z-10 dark:before:bg-white-light before:bg-black-light after:block after:absolute after:w-6 after:top-0 after:-right-6 after:h-full 
           after:blur-xl after:backdrop-blur-xl after:z-10 dark:after:bg-white-light after:bg-black-light'
-        wrapperClass='!ease-linear'
+        wrapperClass='size-full relative flex transition-transform ease-linear'
       >
         {
           skillsToRender.map((Icon, index) => (
