@@ -22,7 +22,12 @@ export const TypeName = () => {
 
   return (
     <div className='mt-40 pt-1 z-10 flex flex-col items-center gap-4'>
-      <h1 className='pt-2 pr-1 text-4xl tablet:text-5xl desktop:text-6xl font-bold border-r-[12px] border-purple animate-blink'>{name}</h1>
+      <h1 
+        className='pt-1.5 tablet:pt-2 pr-1 h-11 tablet:h-14 desktop:h-16 text-4xl tablet:text-5xl desktop:text-6xl 
+          font-bold border-r-8 tablet:border-r-[12px] border-purple animate-blink'
+        >
+          {name}
+        </h1>
       <p className='text-2xl dark:text-grey-light text-grey-dark'>I am a frontend web developer</p>
     </div>
   )

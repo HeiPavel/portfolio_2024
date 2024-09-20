@@ -1,6 +1,7 @@
 import Image from 'next/image'
 import heroBackground from '@/assets/img/pavlo_hero_bg.png'
 import { TypeName } from './TypeName'
+import { SkillCarousel } from './SkillCarousel'
 
 export const Home = () => {
   return (
@@ -13,10 +14,11 @@ export const Home = () => {
           src={heroBackground}
           alt='Hero background image'
           className='relative z-1'
-          priority={false}
+          priority={true}
          />
       </div>
       <TypeName/>
+      <SkillCarousel projectSkills={[]} />
     </section>
   )
 }
