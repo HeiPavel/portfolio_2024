@@ -18,8 +18,10 @@ export const Home = () => {
           priority={true}
          />
       </div>
-      <TypeName/>
-      <SkillCarousel projectSkills={[]} />
+      <div className='relative tablet:mt-36 pt-1 laptop:pt-5 z-10 h-52 flex flex-col items-center gap-2'>
+        <TypeName/>
+        <SkillCarousel projectSkills={[]} />
+      </div>
       <Leetcode/>
     </section>
   )

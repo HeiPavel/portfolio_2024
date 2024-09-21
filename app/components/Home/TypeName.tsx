@@ -21,14 +21,14 @@ export const TypeName = () => {
   }, [name])
 
   return (
-    <div className='tablet:mt-36 laptop:mt-40 pt-1 z-10 flex flex-col items-center gap-3'>
+    <div className='flex flex-col items-center gap-2 md:gap-3'>
       <h1 
-        className='pt-1.5 tablet:pt-2 pr-1 h-11 tablet:h-14 desktop:h-16 text-4xl tablet:text-5xl desktop:text-6xl 
+        className='pt-1.5 tablet:pt-0 md:pt-2 pr-1 h-11 tablet:h-[52px] md:h-14 desktop:h-16 tablet:text-[2.625rem] md:text-5xl desktop:text-6xl 
           font-bold border-r-8 tablet:border-r-[12px] border-purple animate-blink'
         >
           {name}
         </h1>
-      <p className='text-2xl dark:text-grey-light text-grey-dark'>I am a frontend web developer</p>
+      <p className='tablet:text-xl md:text-2xl dark:text-grey-light text-grey-dark'>I am a frontend web developer</p>
     </div>
   )
 }

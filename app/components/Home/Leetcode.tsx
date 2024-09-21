@@ -11,28 +11,33 @@ export const Leetcode = async () => {
   const images = [easy, medium, hard]
 
   return (
-    <div className='relative z-10 mt-64'>
-      <Image
-        src={leetcode}
-        alt='leetcode image'
-        className='tablet:w-40 laptop:w-44 desktop:w-48 h-auto'
-        priority={true}
-      />
-      <div className='tablet:px-2 laptop:px-24 desktop:px-36 flex gap-4'>
-        {dataToRender.map((stats, index) => (
-          <div
-            key={index}
-            className='relative py-4 px-6 max-w-72 h-32 gap-6 bg-white-default dark:bg-black-light border border-grey-default dark:border-grey-light rounded-lg'
-          >
-            <Image
-              src={images[index]}
-              alt='image of the task'
-              priority={true}
-            />
-            <p className='text-center mt-6 text-black-dark dark:text-white-default text-lg'>{stats[0]}/{stats[1]}</p>
-          </div>
-        ))}
+    <>
+      <div className='flex justify-center w-full max-w-[784px]'>
+        <div className='mx-60 basis-72 aspect-[13/11]'></div>
       </div>
-    </div>
+      <div className='relative z-10 pt-1'>
+        <Image
+          src={leetcode}
+          alt='leetcode image'
+          className='tablet:w-40 laptop:w-44 desktop:w-48 h-auto'
+          priority={true}
+        />
+        <div className='tablet:px-2 laptop:px-24 desktop:px-36 flex gap-4'>
+          {dataToRender.map((stats, index) => (
+            <div
+              key={index}
+              className='relative py-4 px-6 max-w-72 h-24 md:h-32 bg-white-default dark:bg-black-light border border-grey-default dark:border-grey-light rounded-lg'
+            >
+              <Image
+                src={images[index]}
+                alt='image of the task'
+                priority={true}
+              />
+              <p className='text-center mt-2 tablet:mt-4 md:mt-6 text-black-dark dark:text-white-default text-sm tablet:text-base md:text-lg'>{stats[0]}/{stats[1]}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </>
   )
 }
