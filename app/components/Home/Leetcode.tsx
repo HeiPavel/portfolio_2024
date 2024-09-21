@@ -13,16 +13,16 @@ export const Leetcode = async () => {
   return (
     <>
       <div className='flex justify-center w-full max-w-[784px]'>
-        <div className='mx-60 basis-72 aspect-[13/11]'></div>
+        <div className='mx-14 tablet:mx-60 basis-[480px] tablet:basis-72 aspect-[13/11]'></div>
       </div>
-      <div className='relative z-10 pt-1'>
+      <div className='relative z-10 pt-8 ss:pt-5 sm:pt-1'>
         <Image
           src={leetcode}
           alt='leetcode image'
-          className='tablet:w-40 laptop:w-44 desktop:w-48 h-auto'
+          className='mx-auto tablet:mx-0 w-48 tablet:w-40 laptop:w-44 desktop:w-48 h-auto'
           priority={true}
         />
-        <div className='tablet:px-2 laptop:px-24 desktop:px-36 flex gap-4'>
+        <div className='tablet:px-2 laptop:px-24 desktop:px-36 flex flex-col tablet:flex-row gap-2 tablet:gap-3 md:gap-4'>
           {dataToRender.map((stats, index) => (
             <div
               key={index}

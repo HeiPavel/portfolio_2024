@@ -10,6 +10,8 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      'ss': '390px',
+      'sm': '480px',
       'tablet': '640px',
       'md': '768px',
       'laptop': '1024px',
