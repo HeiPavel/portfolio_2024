@@ -18,7 +18,7 @@ export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
         }}
         slidesPerView={'auto'}
         preventInteractionOnTransition={true}
-        speed={1000}
+        speed={2500}
         spaceBetween={16}
         slidesOffsetBefore={16}
         modules={[Autoplay]}
@@ -31,6 +31,9 @@ export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
           skillsToRender.map((Icon, index) => (
             <SwiperSlide 
               key={index}
+              style={{
+                backfaceVisibility: 'hidden'
+              }}
             >
               <Icon className='size-12 md:size-16 text-purple contrast-150 dark:brightness-100 brightness-75 drop-shadow-swiper dark:drop-shadow-swiper-dark'/>
             </SwiperSlide>
