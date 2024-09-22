@@ -10,6 +10,8 @@ const config: Config = {
   ],
   theme: {
     screens: {
+      'ss': '390px',
+      'sm': '480px',
       'tablet': '640px',
       'md': '768px',
       'laptop': '1024px',
@@ -20,6 +22,11 @@ const config: Config = {
       padding: {
         DEFAULT: '1rem',
         'tablet': '2rem'
+      },
+      screens: {
+        sm: '100%',    
+        xl: '1280px', 
+        '2xl': '1440px'
       }
     },
     extend: {
@@ -33,11 +40,37 @@ const config: Config = {
           dark: '#0C0C0C'
         },
         purple: '#CA83FA',
-        grey: '#3C3C3D'
+        grey: {
+          default: '#3C3C3D',
+          light: '#D9D9D9',
+          dark: '#474747'
+        }
       },
       boxShadow: {
         'moon': '0 0 10px 5px rgba(56, 3, 92, 0.5)',
         'sun' : '0 0 10px 5px rgba(255, 167, 59, 0.5)'
+      },
+      dropShadow: {
+        'swiper': [
+          '1px 1px rgba(163, 84, 217, 0.4)',
+          '2px 2px rgba(163, 84, 217, 0.3)',
+          '3px 3px rgba(163, 84, 217, 0.2)',
+          '4px 4px rgba(163, 84, 217, 0.1)'
+        ],
+        'swiper-dark': [
+          '1px 1px rgba(200, 131, 248, 0.4)',
+          '2px 2px rgba(200, 131, 248, 0.3)',
+          '3px 3px rgba(200, 131, 248, 0.2)',
+          '4px 4px rgba(200, 131, 248, 0.1)'
+        ]
+      },
+      animation: {
+        'blink': 'blink 0.5s step-end infinite alternate'
+      },
+      keyframes: {
+        'blink': {
+          '50%': {borderColor: 'transparent'}
+        }
       }
     }
   },
