@@ -3,6 +3,7 @@ import heroBackground from '@/assets/img/pavlo_hero_bg.png'
 import { TypeName } from './TypeName'
 import { SkillCarousel } from './SkillCarousel'
 import { Leetcode } from './Leetcode'
+import { About } from './About'
 
 export const Home = () => {
   return (
@@ -23,6 +24,7 @@ export const Home = () => {
         <SkillCarousel projectSkills={[]} />
       </div>
       <Leetcode/>
+      <About/>
     </section>
   )
 }
