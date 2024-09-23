@@ -43,7 +43,8 @@ const config: Config = {
         grey: {
           default: '#3C3C3D',
           light: '#D9D9D9',
-          dark: '#474747'
+          dark: '#474747',
+          border: '#8E8B8B'
         }
       },
       boxShadow: {
