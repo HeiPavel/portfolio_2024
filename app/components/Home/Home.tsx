@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import heroBackground from '@/assets/img/pavlo_hero_bg.png'
 import { TypeName } from './TypeName'
-import { SkillCarousel } from './SkillCarousel'
+import { SkillCarousel } from '../SkillCarousel/SkillCarousel'
 import { Leetcode } from './Leetcode'
 import { About } from './About'
 
