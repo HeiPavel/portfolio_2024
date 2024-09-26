@@ -7,6 +7,9 @@ import { skillIcons } from './skillIcons'
 export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
   const isForProject = !!projectSkills.length
   const skillsToRender = isForProject ? projectSkills.map(skill => skillIcons[skill]) : Object.values(skillIcons)
+  const swiperWidthTabletAndAbove = ['md:w-40', 'md:w-60', 'md:w-80']
+  const swiperWidthMobile = ['w-32', 'w-48', 'w-64']
+  const swiperWidthIndex = isForProject && projectSkills.length < 5 ? projectSkills.length - 3 : 2
 
   return (
     <div className='w-full flex justify-center'>
@@ -22,9 +25,9 @@ export const SkillCarousel = ({projectSkills}: {projectSkills: string[]}) => {
         spaceBetween={16}
         slidesOffsetBefore={16}
         modules={[Autoplay]}
-        className='relative overflow-hidden w-64 md:w-80 rounded-full before:block before:absolute before:w-6 before:top-0 before:-left-6 before:h-full before:blur-xl before:backdrop-blur-xl 
+        className={`relative overflow-hidden ${swiperWidthMobile[swiperWidthIndex]} ${swiperWidthTabletAndAbove[swiperWidthIndex]} rounded-full before:block before:absolute before:w-6 before:top-0 before:-left-6 before:h-full before:blur-xl before:backdrop-blur-xl 
           before:z-10 dark:before:bg-white-light before:bg-black-light after:block after:absolute after:w-6 after:top-0 after:-right-6 after:h-full 
-          after:blur-xl after:backdrop-blur-xl after:z-10 dark:after:bg-white-light after:bg-black-light'
+          after:blur-xl after:backdrop-blur-xl after:z-10 dark:after:bg-white-light after:bg-black-light`}
         wrapperClass='size-full relative flex transition-transform ease-linear'
       >
         {
