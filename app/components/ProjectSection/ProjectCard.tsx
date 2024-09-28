@@ -1,14 +1,17 @@
 import Image from 'next/image'
 import { ProjectType } from '@/app/util/projectData'
-import show from '@/assets/img/show.webp'
-import github from '@/assets/img/github.webp'
 import { SkillCarousel } from '../SkillCarousel/SkillCarousel'
+import {ReactComponent as Show} from '@/assets/icons/show.svg'
+import {ReactComponent as Github} from '@/assets/icons/github.svg'
 
 export const ProjectCard = ({projectContent: {title, text, image, skills, links}}: {projectContent: ProjectType}) => {
-  const linkImages = [show, github]
+  const linkIcones = [Show, Github]
   return (
     <article className='w-full'>
-      <div className='min-h-80 p-4 flex flex-col items-center laptop:items-stretch laptop:flex-row gap-6 laptop:gap-12 bg-white-light dark:bg-grey-default border rounded-3xl border-grey-light dark:border-grey-border'>
+      <div 
+        className='min-h-80 p-4 flex flex-col items-center laptop:items-stretch laptop:flex-row gap-6 
+          laptop:gap-12 bg-white-light dark:bg-grey-default border rounded-3xl border-grey-light dark:border-grey-border'
+      >
         <Image
           src={image}
           alt='project card image'
@@ -29,19 +32,14 @@ export const ProjectCard = ({projectContent: {title, text, image, skills, links}
         </div>
       </div>
       <div className='flex justify-end gap-2'>
-        {links.map((link, index) => (
+        {linkIcones.slice(0, links.length).map((Icon, index) => (
           <a
-            href={link}
+            href={links[index]}
             key={index}
             target='_blank'
             className='w-1/2 tablet:w-auto'
           >
-            <Image
-              src={linkImages[index]}
-              alt='images for links'
-              className='w-48 h-auto'
-              priority={true}
-            />
+            <Icon className='w-full tablet:w-48 transition-all ease-linear duration-150 will-change-[filter,transform] hover:scale-105 hover:drop-shadow-link dark:hover:drop-shadow-link-dark'/>
           </a>
         ))}
       </div>
