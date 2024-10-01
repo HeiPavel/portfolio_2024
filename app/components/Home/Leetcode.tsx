@@ -1,12 +1,21 @@
 import Image from 'next/image'
+import { unstable_cache } from 'next/cache'
 import { fetchLeetcodeData } from '@/app/util/fetchLeetcodeData'
 import easy from '@/assets/img/easy.png'
 import medium from '@/assets/img/medium.png'
 import hard from '@/assets/img/hard.png'
 import leetcode from '@/assets/img/leetcode.png'
 
+const getCachedData = unstable_cache(
+  fetchLeetcodeData,
+  ['leetcodeData'],
+  {
+    revalidate: 86400
+  }
+)
+
 export const Leetcode = async () => {
-  const data = await fetchLeetcodeData()
+  const data = await getCachedData()
   const dataToRender = data.length ? data : [['--', '--'], ['--', '--'], ['--', '--']]
   const images = [easy, medium, hard]
 

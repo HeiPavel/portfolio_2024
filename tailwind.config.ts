@@ -19,13 +19,9 @@ const config: Config = {
     },
     container: {
       center: true,
-      padding: {
-        DEFAULT: '1rem',
-        'tablet': '2rem'
-      },
       screens: {
-        sm: '100%',    
-        xl: '1280px', 
+        DEFAULT: '100%',
+        xl: '1280px',
         '2xl': '1440px'
       }
     },
@@ -63,6 +59,12 @@ const config: Config = {
           '2px 2px rgba(200, 131, 248, 0.3)',
           '3px 3px rgba(200, 131, 248, 0.2)',
           '4px 4px rgba(200, 131, 248, 0.1)'
+        ],
+        'link': [
+          '3px 3px 5px rgba(12, 12, 12, 0.8)'
+        ],
+        'link-dark': [
+          '3px 3px 5px rgba(217, 217, 217, 0.8)'
         ]
       },
       animation: {
@@ -72,6 +74,9 @@ const config: Config = {
         'blink': {
           '50%': {borderColor: 'transparent'}
         }
+      },
+      transitionProperty: {
+        'filter': 'filter'
       }
     }
   },

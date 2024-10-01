@@ -1,21 +1,21 @@
-type LeetcodeData = () => Promise<[number, number][]>
+import LeetCode from 'leetcode-query'
 
-export const fetchLeetcodeData:LeetcodeData = async () => {
+export const fetchLeetcodeData = async () => {
   try {
-    const response = await fetch(
-      'https://alfa-leetcode-api.onrender.com/userProfile/HeiPavel',
-      {
-        next: {
-          revalidate: 86400
-        }
+    const leetcode = new LeetCode()
+    const user = await leetcode.user('HeiPavel')
+    const difficult = ['easy', 'medium', 'hard']
+    const problemSolved: [number, number][] = []
+
+    if (user.matchedUser) {
+      for (const diff of difficult) {
+        const solvedProblems = user.matchedUser.submitStats.acSubmissionNum.find(prob => prob.difficulty.toLowerCase() === diff)?.count ?? 0
+        const totalProblems = user.allQuestionsCount.find(prob => prob.difficulty.toLowerCase() === diff)?.count ?? 0
+        problemSolved.push([solvedProblems, totalProblems])
       }
-    )
-    const jsonResponse = await response.json()
-    return [
-      [jsonResponse.easySolved, jsonResponse.totalEasy],
-      [jsonResponse.mediumSolved, jsonResponse.totalMedium],
-      [jsonResponse.hardSolved, jsonResponse.totalHard]
-    ]
+    }
+
+    return problemSolved
   } catch(error) {
     console.log(error)
     return []
