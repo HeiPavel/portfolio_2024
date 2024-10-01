@@ -1,4 +1,8 @@
+'use client'
+
 import Image from 'next/image'
+import { useState, useRef } from 'react'
+import { motion, useScroll, useMotionValueEvent, Variants } from 'framer-motion'
 import { ProjectType } from '@/app/util/projectData'
 import { SkillCarousel } from '../SkillCarousel/SkillCarousel'
 import {ReactComponent as Show} from '@/assets/icons/show.svg'
@@ -6,8 +10,46 @@ import {ReactComponent as Github} from '@/assets/icons/github.svg'
 
 export const ProjectCard = ({projectContent: {title, text, image, skills, links}}: {projectContent: ProjectType}) => {
   const linkIcones = [Show, Github]
+  const [direction, setDirection] = useState<'top' | 'bottom'>('bottom')
+  const cardRef = useRef(null)
+  const {scrollYProgress} = useScroll({
+    target: cardRef,
+    offset: ['0.5 0.1', '0.5 0.9']
+  })
+
+  useMotionValueEvent(scrollYProgress, "change", (latest) => {
+    if (latest > 0.1 && latest < 0.9) return
+    if (latest <= 0.1) setDirection('top')
+    if (latest >= 0.9) setDirection('bottom')
+  })
+
+  const variants: Variants = {
+    top: {
+      opacity: 0,
+      y: -200
+    },
+    bottom: {
+      opacity: 0,
+      y: 200
+    },
+    visible: {
+      opacity: 1,
+      y: 0
+    }
+  }
+
   return (
-    <article className='w-full'>
+    <motion.div 
+      className='w-full'
+      ref={cardRef}
+      initial={direction}
+      whileInView='visible'
+      variants={variants}
+      transition={{
+        duration: 0.7,
+        ease: 'easeInOut'
+      }}
+    >
       <div 
         className='min-h-80 p-4 flex flex-col items-center laptop:items-stretch laptop:flex-row gap-6 
           laptop:gap-12 bg-white-light dark:bg-grey-default border rounded-3xl border-grey-light dark:border-grey-border'
@@ -43,6 +85,6 @@ export const ProjectCard = ({projectContent: {title, text, image, skills, links}
           </a>
         ))}
       </div>
-    </article>
+    </motion.div>
   )
 }

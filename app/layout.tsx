@@ -22,7 +22,7 @@ export default function RootLayout({
     <html 
       lang="en" 
       suppressHydrationWarning
-      className='scroll-smooth'
+      className='scroll-smooth relative'
     >
       <body className={`relative ${nokora.className} antialiased dark:bg-black-light bg-white-default min-h-screen`}>
         <Providers>
