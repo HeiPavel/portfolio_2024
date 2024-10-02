@@ -18,7 +18,7 @@ export const ContactSection = () => {
   return (
     <section
       id='contact'
-      className='section pt-32 tablet:pt-60 pb-8 tablet:pb-12 flex justify-center border-b tablet:border-b-0 border-grey-border'
+      className='section pt-32 tablet:pt-48 laptop:pt-60 pb-8 tablet:pb-12 flex justify-center border-b border-grey-border dark:border-grey-light'
     >
       <div className='flex flex-col tablet:flex-row items-center gap-8 tablet:gap-0'>
         <p className='w-auto tablet:w-72 text-black-dark dark:text-white-default text-3xl tablet:text-4xl font-bold leading-8 tablet:leading-[3.5rem] border-r-0 tablet:border-r border-grey-border'>Get in touch</p>
