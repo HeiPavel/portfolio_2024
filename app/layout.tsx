@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import {Nokora} from 'next/font/google'
 import { Providers } from './providers'
 import { Header } from './components/Header/Header'
+import { Footer } from './components/Footer'
 import './globals.css'
 
 const nokora = Nokora({
@@ -30,6 +31,7 @@ export default function RootLayout({
           <main className='relative container px-4 tablet:px-8 top-12'>
             {children}
           </main>
+          <Footer/>
         </Providers>
       </body>
     </html>

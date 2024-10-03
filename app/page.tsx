@@ -1,6 +1,7 @@
 import { ThemeSwitch } from './components/ThemeSwitch'
 import { Home } from './components/Home/Home'
 import { ProjectSection } from './components/ProjectSection/ProjectSection'
+import { ContactSection } from './components/ContactSection'
 
 export default function Portfolio() {
   return (
@@ -8,7 +9,7 @@ export default function Portfolio() {
       <ThemeSwitch/>
       <Home/>
       <ProjectSection/>
-      <div id='contact' className='section h-96 pt-12'>Contact</div>
+      <ContactSection/>
     </>
   )
 }

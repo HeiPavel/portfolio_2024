@@ -65,6 +65,18 @@ const config: Config = {
         ],
         'link-dark': [
           '3px 3px 5px rgba(217, 217, 217, 0.8)'
+        ],
+        'contact': [
+          '5px 0px 3px rgba(213, 121, 226, 0.7)',
+          '-5px 0px 3px rgba(213, 121, 226, 0.7)',
+          '0px 5px 3px rgba(213, 121, 226, 0.7)',
+          '0px -5px 3px rgba(213, 121, 226, 0.7)'
+        ],
+        'contact-dark': [
+          '5px 0px 3px rgba(213, 121, 226, 0.4)',
+          '-5px 0px 3px rgba(213, 121, 226, 0.4)',
+          '0px 5px 3px rgba(213, 121, 226, 0.4)',
+          '0px -5px 3px rgba(213, 121, 226, 0.4)'
         ]
       },
       animation: {
