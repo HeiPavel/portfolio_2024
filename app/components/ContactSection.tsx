@@ -1,3 +1,6 @@
+'use client'
+
+import { motion, Variants } from 'framer-motion'
 import { IconType } from 'react-icons'
 import { FaGithubSquare } from 'react-icons/fa'
 import { FaLinkedin } from 'react-icons/fa'
@@ -15,6 +18,22 @@ export const ContactSection = () => {
     {Icon: FaSquareXTwitter, path: 'https://x.com/PavelHei'},
   ]
 
+  const link: Variants = {
+    hidden: {
+      opacity: 0,
+      y: 100
+    },
+    visible: i => ({
+      opacity: [0, 1],
+      y: [-200, 0],
+      transition: {
+        delay: i * 0.2,
+        type: 'spring',
+        
+      }
+    })
+  }
+
   return (
     <section
       id='contact'
@@ -24,13 +43,23 @@ export const ContactSection = () => {
         <p className='w-auto tablet:w-72 text-black-dark dark:text-white-default text-3xl tablet:text-4xl font-bold leading-8 tablet:leading-[3.5rem] border-r-0 tablet:border-r border-grey-border'>Get in touch</p>
         <div className='w-auto tablet:w-64 flex justify-end gap-8'>
           {icons.map(({Icon, path}, index) => (
-            <a
+            <motion.div
               key={index}
-              href={path}
-              target='_blank'
+              custom={index}
+              initial='hidden'
+              whileInView='visible'
+              variants={link}
             >
-              <Icon className='size-12 text-black-light dark:text-grey-light'/>
-            </a>
+              <a
+                href={path}
+                target='_blank'
+              >
+                <Icon 
+                  className='size-12 text-black-light dark:text-grey-light transition-all ease-linear duration-150 will-change-[filter,transform] 
+                    hover:drop-shadow-contact dark:hover:drop-shadow-contact-dark hover:contrast-200 dark:hover:contrast-125'
+                  />
+              </a>
+            </motion.div>
           ))}
         </div>
       </div>
