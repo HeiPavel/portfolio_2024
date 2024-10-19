@@ -7,19 +7,6 @@ const nextConfig = {
     });
 
     return config
-  },
-  async headers() {
-    return [
-      {
-        source: '/(.*)',
-        headers: [
-          {
-            key: 'Vercel-CDN-Cache-Control',
-            value: 'max-age=300, stale-while-revalidate=59'
-          }
-        ]
-      }
-    ]
   }
 };
 
