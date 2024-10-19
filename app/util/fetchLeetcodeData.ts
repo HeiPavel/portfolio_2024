@@ -15,9 +15,15 @@ export const fetchLeetcodeData = async () => {
       }
     }
 
-    return problemSolved
+    return {
+      data: problemSolved,
+      time: new Date().toLocaleTimeString()
+    }
   } catch(error) {
     console.log(error)
-    return []
+    return {
+      data: [],
+      time: '99:99'
+    }
   }
 }

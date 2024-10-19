@@ -10,13 +10,12 @@ const getCachedData = unstable_cache(
   fetchLeetcodeData,
   ['leetcodeData'],
   {
-    revalidate: 600
+    revalidate: 300
   }
 )
 
 export const Leetcode = async () => {
-  const data = await getCachedData()
-  const time = new Date().toLocaleTimeString()
+  const {data, time} = await getCachedData()
   const dataToRender = data.length ? data : [['--', '--'], ['--', '--'], ['--', '--']]
   const images = [easy, medium, hard]
 
