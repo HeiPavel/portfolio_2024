@@ -23,7 +23,7 @@ export const fetchLeetcodeData = async () => {
     console.log(error)
     return {
       data: [],
-      time: '99:99'
+      time: `${error}`
     }
   }
 }
