@@ -10,12 +10,13 @@ const getCachedData = unstable_cache(
   fetchLeetcodeData,
   ['leetcodeData'],
   {
-    revalidate: 86400
+    revalidate: 300
   }
 )
 
 export const Leetcode = async () => {
   const data = await getCachedData()
+  const time = new Date().toLocaleTimeString()
   const dataToRender = data.length ? data : [['--', '--'], ['--', '--'], ['--', '--']]
   const images = [easy, medium, hard]
 
@@ -42,7 +43,7 @@ export const Leetcode = async () => {
                 alt='image of the task'
                 priority={true}
               />
-              <p className='text-center mt-2 tablet:mt-4 md:mt-6 text-black-dark dark:text-white-default text-sm tablet:text-base md:text-lg'>{stats[0]}/{stats[1]}</p>
+              <p title={time} className='text-center mt-2 tablet:mt-4 md:mt-6 text-black-dark dark:text-white-default text-sm tablet:text-base md:text-lg'>{stats[0]}/{stats[1]}</p>
             </div>
           ))}
         </div>
