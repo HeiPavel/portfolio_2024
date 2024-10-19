@@ -10,7 +10,7 @@ const getCachedData = unstable_cache(
   fetchLeetcodeData,
   ['leetcodeData'],
   {
-    revalidate: 60
+    revalidate: 300
   }
 )
 
