@@ -6,7 +6,7 @@ import hard from '@/assets/img/hard.png'
 import leetcode from '@/assets/img/leetcode.png'
 
 export const Leetcode = async () => {
-  const {data, time} = await fetchLeetcodeData()
+  const data = await fetchLeetcodeData()
   const dataToRender = data.length ? data : [['--', '--'], ['--', '--'], ['--', '--']]
   const images = [easy, medium, hard]
 
@@ -33,7 +33,7 @@ export const Leetcode = async () => {
                 alt='image of the task'
                 priority={true}
               />
-              <p title={time} className='text-center mt-2 tablet:mt-4 md:mt-6 text-black-dark dark:text-white-default text-sm tablet:text-base md:text-lg'>{stats[0]}/{stats[1]}</p>
+              <p className='text-center mt-2 tablet:mt-4 md:mt-6 text-black-dark dark:text-white-default text-sm tablet:text-base md:text-lg'>{stats[0]}/{stats[1]}</p>
             </div>
           ))}
         </div>
