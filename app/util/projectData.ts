@@ -4,6 +4,7 @@ import wish_movie from '@/assets/img/wish_movie.webp'
 import space_tourism from '@/assets/img/interplanetary-tourism.webp'
 import age_calculator from '@/assets/img/age_calculator.webp'
 import countries from '@/assets/img/countries.webp'
+import ticketGenerator from '@/assets/img/ticket-generator.jpg'
 
 export type ProjectType = {
   title: string
@@ -14,6 +15,13 @@ export type ProjectType = {
 }
 
 export const projects: ProjectType[] = [
+  {
+    title: 'Ticket Generator',
+    text: 'This web application allows users to create a personalized event ticket by filling out a simple form. Once submitted, a custom ticket is generated and sent directly to the user\'s email address.',
+    skills: ['next', 'react', 'react-hook-form', 'typescript', 'html', 'tailwind', 'motion', 'zod', 'resend', 'react-email'],
+    image: ticketGenerator,
+    links: ['https://ticket-generator-liard.vercel.app/', 'https://github.com/HeiPavel/ticket_generator']
+  },
   {
     title: 'Countries Info',
     text: 'Explore and discover countries worldwide with key information at your fingertips. Search, filter by region, and learn essential details about any country in just a few clicks. The motivation behind this project was to implement Incremental Static Regeneration (ISR) to reduce server load, improve cache control, and enhance SEO by incorporating meta tags, a sitemap.xml, and a robots.txt file. These optimizations help improve page visibility in search results and facilitate better indexing of individual pages.',
