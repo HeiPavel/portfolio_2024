@@ -80,7 +80,7 @@ const config: Config = {
         ]
       },
       animation: {
-        'blink': 'blink 0.5s step-end infinite alternate'
+        'blink': 'blink 1s step-end infinite'
       },
       keyframes: {
         'blink': {
